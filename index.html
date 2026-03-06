@@ -16,12 +16,12 @@
         <div class="input-grid">
           <div class="field">
             <label for="totalTime">Total Match Time</label>
-            <input type="text" id="totalTime" placeholder="10:00" />
+            <input type="text" id="totalTime" placeholder="10:00.00" />
           </div>
 
           <div class="field">
             <label for="playerTime">Single Time Per Person</label>
-            <input type="text" id="playerTime" placeholder="00:24" />
+            <input type="text" id="playerTime" placeholder="00:24.00" />
           </div>
         </div>
       </section>
@@ -29,20 +29,20 @@
       <div class="helper-box">
         <span class="helper-icon">ℹ</span>
         <span>
-          Time format: <strong>MM:SS</strong> or seconds only. Player time is capped at
-          <strong>24 seconds</strong>.
+          Time format: <strong>MM:SS</strong>, <strong>MM:SS.xx</strong>, or seconds only.
+          Player time is capped at <strong>24.00 seconds</strong>.
         </span>
       </div>
 
       <section class="timers-stack">
         <div class="timer-card total-timer-card">
           <div class="timer-label">Total Match Timer</div>
-          <div id="totalDisplay" class="time-display">00:00</div>
+          <div id="totalDisplay" class="time-display">00:00.00</div>
         </div>
 
         <div class="timer-card accent-card player-timer-card">
           <div class="timer-label">Player Timer</div>
-          <div id="playerDisplay" class="time-display">00:00</div>
+          <div id="playerDisplay" class="time-display">00:00.00</div>
         </div>
       </section>
 

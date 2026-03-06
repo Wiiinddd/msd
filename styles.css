@@ -1,22 +1,16 @@
 :root {
-  --card: rgba(255, 255, 255, 0.84);
-  --card-strong: rgba(255, 255, 255, 0.97);
+  --card: rgba(255, 255, 255, 0.86);
+  --card-strong: rgba(255, 255, 255, 0.98);
   --text: #1f2937;
   --muted: #64748b;
   --line: rgba(15, 23, 42, 0.08);
-
-  --primary: #2563eb;
-  --primary-soft: #dbeafe;
-
-  --accent: #f97316;
-  --accent-soft: #ffedd5;
 
   --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.12);
   --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.08);
 
   --radius-xl: 28px;
   --radius-lg: 20px;
-  --radius-md: 14px;
+  --radius-md: 16px;
 }
 
 * {
@@ -46,7 +40,7 @@ body {
   border-radius: 50%;
   filter: blur(10px);
   z-index: 0;
-  opacity: 0.35;
+  opacity: 0.32;
   pointer-events: none;
 }
 
@@ -77,12 +71,11 @@ body {
 }
 
 .app-card {
-  width: 100%;
-  max-width: 920px;
+  width: min(100%, 960px);
   background: var(--card);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-xl);
   padding: 16px;
@@ -102,18 +95,18 @@ body {
 
 .input-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 label {
-  font-size: 0.88rem;
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
   font-weight: 700;
   color: #334155;
   line-height: 1.2;
@@ -121,12 +114,13 @@ label {
 
 input {
   width: 100%;
-  padding: 13px 12px;
+  min-height: 56px;
+  padding: 14px 16px;
   border-radius: var(--radius-md);
   border: 1px solid #dbe3ef;
   background: var(--card-strong);
   color: var(--text);
-  font-size: 16px;
+  font-size: clamp(1rem, 4.3vw, 1.1rem);
   outline: none;
   transition: 0.2s ease;
   box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03);
@@ -150,8 +144,8 @@ input:focus {
   color: #475569;
   border-radius: var(--radius-md);
   padding: 12px 14px;
-  line-height: 1.45;
-  font-size: 0.9rem;
+  line-height: 1.5;
+  font-size: clamp(0.88rem, 3.6vw, 0.98rem);
 }
 
 .helper-icon {
@@ -175,14 +169,14 @@ input:focus {
 }
 
 .timer-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(248, 250, 252, 0.98));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98));
   border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 22px 16px;
+  border-radius: 24px;
+  padding: 20px 14px;
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
-  min-height: 150px;
+  min-height: 21vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -203,21 +197,22 @@ input:focus {
 }
 
 .timer-label {
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
   font-weight: 700;
   color: var(--muted);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
 .time-display {
-  font-size: clamp(3rem, 14vw, 4.3rem);
+  font-size: clamp(2.7rem, 13vw, 4.4rem);
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   color: #0f172a;
   font-variant-numeric: tabular-nums;
   line-height: 1;
   text-align: center;
+  white-space: nowrap;
 }
 
 .accent-card {
@@ -247,10 +242,11 @@ input:focus {
 
 button {
   width: 100%;
+  min-height: 54px;
   border: none;
   border-radius: 16px;
-  padding: 15px 16px;
-  font-size: 1rem;
+  padding: 14px 16px;
+  font-size: clamp(0.98rem, 4vw, 1.05rem);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
@@ -299,12 +295,12 @@ button:disabled {
   border-radius: 16px;
   padding: 14px 16px;
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.5;
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
-  font-size: 0.94rem;
+  font-size: clamp(0.9rem, 3.6vw, 0.98rem);
 }
 
-/* Tablet and above */
+/* Tablet */
 @media (min-width: 641px) {
   .app-shell {
     padding: 20px;
@@ -315,6 +311,7 @@ button:disabled {
   }
 
   .input-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
 
@@ -324,20 +321,15 @@ button:disabled {
   }
 
   .timer-card {
-    min-height: 210px;
-    padding: 28px 20px;
+    min-height: 220px;
+    padding: 26px 18px;
   }
 
   .time-display {
-    font-size: clamp(3rem, 7vw, 4.4rem);
-  }
-
-  .controls-section {
-    gap: 14px;
+    font-size: clamp(3.2rem, 6.5vw, 4.6rem);
   }
 
   .action-row-two {
-    grid-template-columns: 1fr 1fr;
     max-width: 420px;
     margin: 0 auto;
   }
@@ -346,35 +338,20 @@ button:disabled {
     max-width: 420px;
     margin: 0 auto;
   }
-
-  label {
-    font-size: 0.95rem;
-  }
-
-  .helper-box {
-    font-size: 0.95rem;
-    padding: 14px 16px;
-  }
-
-  .status {
-    font-size: 0.98rem;
-    padding: 16px 18px;
-  }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
   .app-card {
-    max-width: 960px;
     padding: 28px;
   }
 
   .timer-card {
-    min-height: 230px;
+    min-height: 240px;
   }
 
   .time-display {
-    font-size: 4.2rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -384,35 +361,22 @@ button:disabled {
     padding: 12px;
   }
 
-  .input-grid {
-    gap: 8px;
-  }
-
-  label {
-    font-size: 0.8rem;
-  }
-
   input {
-    padding: 12px 10px;
-    font-size: 16px;
-  }
-
-  .helper-box {
-    font-size: 0.84rem;
-    padding: 10px 12px;
+    min-height: 52px;
+    padding: 12px 14px;
   }
 
   .timer-card {
-    min-height: 138px;
+    min-height: 19vh;
     padding: 18px 12px;
   }
 
   .time-display {
-    font-size: clamp(2.7rem, 13vw, 3.5rem);
+    font-size: clamp(2.35rem, 12.5vw, 3.4rem);
   }
 
   button {
-    padding: 14px 12px;
-    font-size: 0.94rem;
+    min-height: 50px;
+    padding: 12px 14px;
   }
 }
