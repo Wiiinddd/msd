@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basketball Competition Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+
+  <main class="app-shell">
+    <section class="app-card">
+      <section class="input-section">
+        <div class="input-grid">
+          <div class="field">
+            <label for="totalTime">Total Match Time</label>
+            <input type="text" id="totalTime" placeholder="10:00.00" />
+          </div>
+
+          <div class="field">
+            <label for="playerTime">Single Time Per Person</label>
+            <input type="text" id="playerTime" placeholder="00:24.00" />
+          </div>
+        </div>
+      </section>
+
+      <div class="helper-box">
+        <span class="helper-icon">ℹ</span>
+        <span>
+          Time format: <strong>MM:SS</strong>, <strong>MM:SS.xx</strong>, or seconds only.
+          Player time is capped at <strong>24.00 seconds</strong>.
+        </span>
+      </div>
+
+      <section class="timers-stack">
+        <div class="timer-card total-timer-card">
+          <div class="timer-label">Total Match Timer</div>
+          <div id="totalDisplay" class="time-display">00:00.00</div>
+        </div>
+
+        <div class="timer-card accent-card player-timer-card">
+          <div class="timer-label">Player Timer</div>
+          <div id="playerDisplay" class="time-display">00:00.00</div>
+        </div>
+      </section>
+
+      <section class="controls-section">
+        <div class="action-row action-row-two">
+          <button id="startBtn">Start</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+
+        <div class="action-row action-row-single">
+          <button id="changeBtn" disabled>Change People</button>
+        </div>
+
+        <div class="action-row action-row-single">
+          <button id="continueBtn" disabled>Continue Game</button>
+        </div>
+      </section>
+
+      <div id="status" class="status">Enter the times and press Start.</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
